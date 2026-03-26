@@ -74,20 +74,17 @@
       width: 42px;
       height: 42px;
       border-radius: 14px;
-      background: linear-gradient(135deg, #c084fc 0%, #a855f7 45%, #7e22ce 100%);
-      box-shadow: 0 12px 30px rgba(168,85,247,0.35);
-      position: relative;
+      object-fit: cover;
+      box-shadow: 0 12px 30px rgba(168,85,247,0.20);
+      border: 1px solid rgba(168,85,247,0.12);
       flex: 0 0 auto;
+      background: #fff;
     }
-    .brand-badge::after {
-      content: "M";
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      color: #fff;
-      font-weight: 900;
-      font-size: 1.1rem;
+
+    .brand-name {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .menu {
@@ -496,8 +493,8 @@
   <header class="topbar">
     <div class="container nav">
       <a href="#home" class="brand" aria-label="MunaCash Home">
-        <span class="brand-badge"></span>
-        <span>MunaCash</span>
+        <img src="assets/logo.jpg" alt="MunaCash logo" class="brand-badge" />
+        <span class="brand-name">MunaCash</span>
       </a>
       <nav class="menu" aria-label="Main navigation">
         <a href="#home">Home</a>
@@ -765,8 +762,8 @@
   <footer>
     <div class="container footer-wrap">
       <div class="footer-brand">
-        <span class="brand-badge"></span>
-        <span>MunaCash</span>
+        <img src="assets/logo.jpg" alt="MunaCash logo" class="brand-badge" />
+        <span class="brand-name">MunaCash</span>
       </div>
       <div><strong>Company:</strong> SEACOM UGANDA LIMITED</div>
       <div>
