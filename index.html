@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MunaCash Uganda | Fast, Fair & Secure Digital Loans</title>
+  <meta name="description" content="MunaCash helps Ugandans access fast, transparent, and secure digital loans with instant review and seamless MTN MoMo & Airtel Money support." />
+  <meta name="theme-color" content="#A855F7" />
+  <style>
+    :root {
+      --primary: #A855F7;
+      --primary-dark: #7e22ce;
+      --primary-soft: #f3e8ff;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --line: #eadcff;
+      --bg: #ffffff;
+      --bg-alt: #faf5ff;
+      --card: rgba(255,255,255,0.88);
+      --success: #16a34a;
+      --shadow: 0 18px 50px rgba(88, 28, 135, 0.14);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(168,85,247,0.16), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #fcfaff 100%);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(255,255,255,0.85);
+      border-bottom: 1px solid rgba(168,85,247,0.10);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 74px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: 1.08rem;
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #c084fc 0%, #a855f7 45%, #7e22ce 100%);
+      box-shadow: 0 12px 30px rgba(168,85,247,0.35);
+      position: relative;
+      flex: 0 0 auto;
+    }
+    .brand-badge::after {
+      content: "M";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .menu a {
+      color: var(--muted);
+      font-weight: 600;
+      transition: color .2s ease;
+    }
+    .menu a:hover { color: var(--primary-dark); }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 16px 28px rgba(168,85,247,0.24);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 34px rgba(168,85,247,0.28);
+    }
+
+    .hero {
+      padding: 48px 0 28px;
+    }
+
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(168,85,247,0.10);
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: .92rem;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 { line-height: 1.1; margin: 0 0 16px; letter-spacing: -0.03em; }
+    h1 { font-size: clamp(2.6rem, 5vw, 4.7rem); }
+    h2 { font-size: clamp(2rem, 3vw, 3rem); }
+    h3 { font-size: 1.25rem; }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 58ch;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid rgba(168,85,247,0.18);
+      color: var(--primary-dark);
+      background: rgba(255,255,255,0.72);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(168,85,247,0.10);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: 18px;
+    }
+    .stat strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+    .stat span {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .phone-card {
+      position: relative;
+      padding: 24px;
+      border-radius: 32px;
+      background: linear-gradient(180deg, rgba(168,85,247,0.14), rgba(255,255,255,0.82));
+      border: 1px solid rgba(168,85,247,0.14);
+      box-shadow: var(--shadow);
+    }
+
+    .phone {
+      width: min(100%, 360px);
+      margin: 0 auto;
+      background: #111827;
+      border-radius: 36px;
+      padding: 14px;
+      box-shadow: 0 30px 60px rgba(17,24,39,0.22);
+    }
+
+    .screen {
+      min-height: 620px;
+      border-radius: 26px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #ffffff 0%, #f8f0ff 100%);
+      position: relative;
+    }
+
+    .screen-top {
+      padding: 20px 20px 16px;
+      background: linear-gradient(135deg, #c084fc, #a855f7 58%, #7e22ce);
+      color: #fff;
+    }
+
+    .screen-body {
+      padding: 18px;
+    }
+
+    .loan-card, .mini-card {
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 15px 32px rgba(88, 28, 135, 0.10);
+      border: 1px solid rgba(168,85,247,0.10);
+    }
+
+    .loan-card { padding: 20px; margin-top: -34px; position: relative; }
+    .mini-card { padding: 16px; margin-top: 14px; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      padding: 8px 12px;
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+    .amount {
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      margin: 12px 0 8px;
+      color: #111827;
+    }
+
+    .muted { color: var(--muted); }
+
+    .progress {
+      height: 10px;
+      border-radius: 999px;
+      background: #efe6ff;
+      overflow: hidden;
+      margin: 18px 0 8px;
+    }
+
+    .progress > span {
+      display: block;
+      width: 72%;
+      height: 100%;
+      background: linear-gradient(90deg, #c084fc, #a855f7);
+      border-radius: inherit;
+    }
+
+    .grid-2, .grid-3, .grid-4 {
+      display: grid;
+      gap: 20px;
+    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 1.04rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(168,85,247,0.12);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      height: 100%;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #e9d5ff, #d8b4fe);
+      color: var(--primary-dark);
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+
+    .step {
+      position: relative;
+      padding-top: 50px;
+    }
+    .step-num {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      box-shadow: 0 14px 24px rgba(168,85,247,0.24);
+    }
+
+    .highlight {
+      background: linear-gradient(180deg, rgba(168,85,247,0.06), rgba(168,85,247,0.03));
+      border-top: 1px solid rgba(168,85,247,0.08);
+      border-bottom: 1px solid rgba(168,85,247,0.08);
+    }
+
+    .tip {
+      margin-top: 24px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: #f5edff;
+      border: 1px dashed rgba(168,85,247,0.30);
+      color: #5b21b6;
+      font-weight: 600;
+    }
+
+    .about-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .privacy-box {
+      background: linear-gradient(180deg, #1f102f 0%, #311547 100%);
+      color: #fff;
+      border-radius: var(--radius-xl);
+      padding: 34px;
+      box-shadow: 0 24px 54px rgba(49, 21, 71, 0.30);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .privacy-box::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: -60px;
+      bottom: -100px;
+      background: radial-gradient(circle, rgba(192,132,252,0.32), transparent 70%);
+      border-radius: 999px;
+    }
+
+    .policy-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .policy-item {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #ffffff, #faf5ff);
+      border: 1px solid rgba(168,85,247,0.12);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid rgba(168,85,247,0.10);
+    }
+
+    footer {
+      background: #1a1024;
+      color: rgba(255,255,255,0.86);
+      padding: 26px 0 max(26px, env(safe-area-inset-bottom));
+      position: sticky;
+      bottom: 0;
+      z-index: 40;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-wrap {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.4fr;
+      gap: 16px;
+      align-items: center;
+      font-size: .97rem;
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .footer-wrap strong {
+      color: #fff;
+    }
+
+    @media (max-width: 980px) {
+      .hero-wrap,
+      .about-panel,
+      .grid-4,
+      .grid-3,
+      .grid-2,
+      .footer-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 28px; }
+      section { padding: 62px 0; }
+      .phone-card { padding: 14px; }
+      .screen { min-height: auto; }
+      .privacy-box, .contact-box { padding: 22px; }
+      .topbar .nav { min-height: 68px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="MunaCash Home">
+        <span class="brand-badge"></span>
+        <span>MunaCash</span>
+      </a>
+      <nav class="menu" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="#contact">Contact</a>
+        <a href="#how-it-works" class="cta">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-wrap">
+        <div>
+          <div class="eyebrow">Uganda Digital Lending • Fast • Transparent • Secure</div>
+          <h1>Empower Your Financial Future with MunaCash</h1>
+          <p class="lead">
+            MunaCash is your trusted digital lending partner in Uganda — built to deliver fast access to credit,
+            transparent loan terms, and a seamless experience with MTN MoMo and Airtel Money.
+          </p>
+          <div class="hero-actions">
+            <a href="#how-it-works" class="cta">Apply in 3 Simple Steps</a>
+            <a href="#about" class="ghost">Learn About MunaCash</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>Instant</strong>
+              <span>AI-powered application review in minutes.</span>
+            </div>
+            <div class="stat">
+              <strong>Transparent</strong>
+              <span>No hidden fees. Clear terms from the start.</span>
+            </div>
+            <div class="stat">
+              <strong>Integrated</strong>
+              <span>Optimized for MTN MoMo and Airtel Money.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone-card" aria-hidden="true">
+          <div class="phone">
+            <div class="screen">
+              <div class="screen-top">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+                  <strong style="font-size:1.05rem;">MunaCash</strong>
+                  <span style="font-size:.95rem; opacity:.9;">Loan Dashboard</span>
+                </div>
+                <div style="font-size:2rem; font-weight:900; letter-spacing:-0.04em; max-width:10ch; line-height:1.05;">Fast support when you need it most.</div>
+              </div>
+              <div class="screen-body">
+                <div class="loan-card">
+                  <span class="pill">Pre-approved credit offer</span>
+                  <div class="amount">UGX 800,000</div>
+                  <div class="muted">Available limit based on your profile</div>
+                  <div class="progress"><span></span></div>
+                  <div class="muted" style="display:flex; justify-content:space-between; gap:12px; font-size:.92rem;">
+                    <span>Approval progress</span>
+                    <strong style="color:var(--primary-dark)">72%</strong>
+                  </div>
+                </div>
+                <div class="mini-card">
+                  <div style="display:flex; justify-content:space-between; gap:16px; align-items:center;">
+                    <div>
+                      <strong style="display:block; margin-bottom:4px;">Wallet Payout</strong>
+                      <span class="muted">Send cash to MTN MoMo or Airtel Money</span>
+                    </div>
+                    <span class="pill">Instant</span>
+                  </div>
+                </div>
+                <div class="mini-card">
+                  <strong style="display:block; margin-bottom:8px;">Credit Growth</strong>
+                  <span class="muted">Repay on time to unlock higher limits and lower interest rates automatically.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Why Choose MunaCash?</h2>
+          <p>
+            A modern financial experience designed for real life in Uganda — fast decisions, honest terms, and mobile-first convenience.
+          </p>
+        </div>
+        <div class="grid-4">
+          <article class="card">
+            <div class="icon">⚡</div>
+            <h3>Instant Response</h3>
+            <p class="muted">No paperwork, no queues. Our AI scoring system evaluates your application in minutes.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🛡️</div>
+            <h3>Radical Transparency</h3>
+            <p class="muted">What you see is what you pay. No hidden fees. We believe in honest lending.</p>
+          </article>
+          <article class="card">
+            <div class="icon">📈</div>
+            <h3>Credit Growth</h3>
+            <p class="muted">Repay on time to automatically unlock higher limits and lower interest rates.</p>
+          </article>
+          <article class="card">
+            <div class="icon">📱</div>
+            <h3>Seamless Integration</h3>
+            <p class="muted">Fully optimized for MTN MoMo and Airtel Money for the fastest experience.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlight" id="how-it-works">
+      <div class="container">
+        <div class="section-head">
+          <h2>Simple 3-Step Process</h2>
+          <p>Getting financial support with MunaCash is fast, intuitive, and fully mobile.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card step">
+            <div class="step-num">1</div>
+            <h3>Download & Register</h3>
+            <p class="muted">Find MunaCash on Google Play and sign up with your phone number.</p>
+          </article>
+          <article class="card step">
+            <div class="step-num">2</div>
+            <h3>Get Your Limit</h3>
+            <p class="muted">Complete a quick profile to see your personalized credit offer.</p>
+          </article>
+          <article class="card step">
+            <div class="step-num">3</div>
+            <h3>Receive Cash</h3>
+            <p class="muted">Confirm your loan, and funds will be sent to your wallet instantly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>Your Digital Financial Partner</h2>
+          <p>MunaCash is built to expand fair and dignified access to credit for every Ugandan.</p>
+        </div>
+        <div class="about-panel">
+          <article class="card">
+            <h3>Our Vision</h3>
+            <p class="muted">
+              Founded by <strong>SEACOM UGANDA LIMITED</strong>, MunaCash aims to provide fair, fast, and dignified financial services to every Ugandan through innovative fintech.
+            </p>
+            <h3 style="margin-top:22px;">Why Us?</h3>
+            <p class="muted">
+              We understand the hurdles of traditional lending. At MunaCash, we use big data and advanced algorithms to remove complexity, focusing on our core values: <strong>Speed</strong> and <strong>Trust</strong>.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Privacy Guarantee</h3>
+            <p class="muted">
+              We treat data privacy as our lifeline. All your information is encrypted and used only for credit evaluation, never shared.
+            </p>
+            <div class="tip">
+              MunaCash combines responsible technology, transparent loan communication, and customer-first support to create a smoother borrowing experience.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlight">
+      <div class="container">
+        <div class="section-head">
+          <h2>4 Steps to Unlock Your Financial Support</h2>
+          <p>A more detailed borrowing guide for first-time users.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card step">
+            <div class="step-num">1</div>
+            <h3>Install MunaCash</h3>
+            <p class="muted">Download and install the app from Google Play.</p>
+          </article>
+          <article class="card step">
+            <div class="step-num">2</div>
+            <h3>Simple Registration</h3>
+            <p class="muted">Enter your phone number, get the verification code, and complete the basic signup.</p>
+          </article>
+          <article class="card step">
+            <div class="step-num">3</div>
+            <h3>Get Your Limit</h3>
+            <p class="muted">Fill in basic personal details. Our smart AI system will review and show your limit within seconds.</p>
+          </article>
+          <article class="card step">
+            <div class="step-num">4</div>
+            <h3>Instant Cash</h3>
+            <p class="muted">Confirm the loan amount and repayment period, and funds will be sent to your MTN or Airtel account immediately.</p>
+          </article>
+        </div>
+        <div class="tip">Tip: Repaying on time helps improve your credit score and unlocks lower interest rates.</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="privacy-box">
+          <div class="section-head" style="margin-bottom:0; max-width:860px; position:relative; z-index:1;">
+            <div class="eyebrow" style="background:rgba(255,255,255,0.10); color:#f3e8ff;">Privacy & Trust</div>
+            <h2 style="color:#fff;">Your Data Deserves Respect</h2>
+            <p style="color:rgba(255,255,255,0.80);">
+              MunaCash is committed to safeguarding your personal information with strong encryption, responsible data handling, and transparent privacy practices.
+            </p>
+          </div>
+          <div class="policy-list" style="position:relative; z-index:1;">
+            <div class="policy-item"><strong>Data Security:</strong> Personal information is encrypted during storage and transmission.</div>
+            <div class="policy-item"><strong>Purpose Limitation:</strong> Data is collected and used only for identity verification, risk control, and credit evaluation.</div>
+            <div class="policy-item"><strong>User Transparency:</strong> We explain what data is collected and why, so users can make informed decisions.</div>
+          </div>
+          <div style="margin-top:24px; position:relative; z-index:1;">
+            <a class="cta" href="privacy.html">Read Full Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">We Are Here to Help</div>
+          <h2>Get in Touch</h2>
+          <p>
+            Whether you have questions during your application or need support, our team is ready to assist.
+          </p>
+        </div>
+        <div class="contact-box">
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="icon" style="margin:0; width:44px; height:44px;">✉️</div>
+              <div>
+                <strong>Support Email</strong>
+                <div class="muted">help@seacomug.com</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="icon" style="margin:0; width:44px; height:44px;">📍</div>
+              <div>
+                <strong>Office Address</strong>
+                <div class="muted">Plot 28-30, Block B, Clement Hill Road, Kampala, UG</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="icon" style="margin:0; width:44px; height:44px;">🕒</div>
+              <div>
+                <strong>Working Hours</strong>
+                <div class="muted">Monday to Sunday, 24/7 Online Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div class="footer-brand">
+        <span class="brand-badge"></span>
+        <span>MunaCash</span>
+      </div>
+      <div><strong>Company:</strong> SEACOM UGANDA LIMITED</div>
+      <div>
+        <strong>Support:</strong> help@seacomug.com<br />
+        <strong>Address:</strong> Plot 28-30, Block B, Clement Hill Road, Kampala, UG
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
