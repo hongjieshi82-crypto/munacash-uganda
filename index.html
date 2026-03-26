@@ -71,9 +71,9 @@
     }
 
     .brand-badge {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
       object-fit: cover;
       box-shadow: 0 12px 30px rgba(168,85,247,0.20);
       border: 1px solid rgba(168,85,247,0.12);
@@ -85,6 +85,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      font-size: 1.12rem;
     }
 
     .menu {
@@ -160,7 +161,49 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .download-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
       margin-bottom: 28px;
+    }
+
+    .download-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(168,85,247,0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .download-logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 1px solid rgba(168,85,247,0.12);
+      box-shadow: 0 12px 30px rgba(168,85,247,0.18);
+      background: #fff;
+    }
+
+    .play-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 18px;
+      background: #111827;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      box-shadow: 0 14px 30px rgba(17,24,39,0.20);
     }
 
     .ghost {
@@ -205,6 +248,20 @@
       background: linear-gradient(180deg, rgba(168,85,247,0.14), rgba(255,255,255,0.82));
       border: 1px solid rgba(168,85,247,0.14);
       box-shadow: var(--shadow);
+    }
+
+    .floating-logo {
+      position: absolute;
+      top: -18px;
+      right: 18px;
+      width: 88px;
+      height: 88px;
+      border-radius: 24px;
+      object-fit: cover;
+      background: #fff;
+      border: 4px solid rgba(255,255,255,0.9);
+      box-shadow: 0 18px 40px rgba(168,85,247,0.28);
+      z-index: 2;
     }
 
     .phone {
@@ -521,6 +578,16 @@
             <a href="#how-it-works" class="cta">Apply in 3 Simple Steps</a>
             <a href="#about" class="ghost">Learn About MunaCash</a>
           </div>
+          <div class="download-strip">
+            <div class="download-card">
+              <img src="assets/logo.jpg" alt="MunaCash app icon" class="download-logo" />
+              <div>
+                <strong style="display:block; margin-bottom:4px;">MunaCash App</strong>
+                <span class="muted">Fast digital loans for Uganda</span>
+              </div>
+            </div>
+            <a href="#how-it-works" class="play-btn">Get it on Google Play</a>
+          </div>
           <div class="hero-stats">
             <div class="stat">
               <strong>Instant</strong>
@@ -538,6 +605,7 @@
         </div>
 
         <div class="phone-card" aria-hidden="true">
+          <img src="assets/logo.jpg" alt="MunaCash icon" class="floating-logo" />
           <div class="phone">
             <div class="screen">
               <div class="screen-top">
