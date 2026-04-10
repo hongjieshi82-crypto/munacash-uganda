@@ -1,262 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy | MunaCash Uganda</title>
-  <meta name="description" content="Read the MunaCash Privacy Policy to understand how personal information is collected, stored, used, and protected." />
-  <meta name="theme-color" content="#A855F7" />
-  <style>
-    :root {
-      --primary: #A855F7;
-      --primary-dark: #7e22ce;
-      --primary-soft: #f3e8ff;
-      --ink: #1f2937;
-      --muted: #6b7280;
-      --line: #eadcff;
-      --card: rgba(255,255,255,0.94);
-      --shadow: 0 18px 50px rgba(88, 28, 135, 0.14);
-      --max: 980px;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at top right, rgba(168,85,247,0.16), transparent 30%),
-        linear-gradient(180deg, #ffffff 0%, #fcfaff 100%);
-      line-height: 1.75;
-    }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
-    .topbar {
-      position: sticky; top: 0; z-index: 40;
-      background: rgba(255,255,255,0.88); backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(168,85,247,0.10);
-    }
-    .nav {
-      min-height: 74px; display:flex; align-items:center; justify-content:space-between; gap:24px;
-    }
-    .brand { display:inline-flex; align-items:center; gap:12px; font-weight:800; }
-    .brand-badge {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      object-fit: cover;
-      box-shadow: 0 12px 30px rgba(168,85,247,0.20);
-      border: 1px solid rgba(168,85,247,0.12);
-      background: #fff;
-    }
-    .brand-name {
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-    }
-    .cta {
-      display:inline-flex; align-items:center; justify-content:center;
-      padding: 12px 20px; border-radius:999px; color:#fff; font-weight:700;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      box-shadow: 0 16px 28px rgba(168,85,247,0.24);
-    }
-    .hero { padding: 52px 0 24px; }
-    .eyebrow {
-      display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px;
-      background: rgba(168,85,247,0.10); color: var(--primary-dark); font-weight:700; font-size:.92rem;
-      margin-bottom:16px;
-    }
-    h1, h2, h3 { letter-spacing: -0.03em; line-height: 1.12; }
-    h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); margin: 0 0 16px; }
-    h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin: 0 0 12px; }
-    h3 { font-size: 1.06rem; margin: 22px 0 10px; }
-    p, li { color: var(--muted); }
-    .lead { font-size: 1.08rem; max-width: 68ch; }
-    .policy-card {
-      background: var(--card);
-      border:1px solid rgba(168,85,247,0.12);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 30px;
-      margin: 28px 0;
-    }
-    .section {
-      padding: 18px 0;
-      border-top: 1px solid var(--line);
-    }
-    .section:first-child { border-top: none; padding-top: 0; }
-    .note {
-      background: var(--primary-soft);
-      color: var(--primary-dark);
-      padding: 16px 18px;
-      border-radius: 18px;
-      font-weight: 600;
-      border:1px solid rgba(168,85,247,0.10);
-      margin-top: 18px;
-    }
-    ul { padding-left: 20px; }
-    li + li { margin-top: 8px; }
-    footer {
-      margin-top: 40px; padding: 26px 0 40px;
-      border-top: 1px solid rgba(168,85,247,0.10); color: var(--muted);
-    }
-    @media (max-width: 640px) {
-      .nav { min-height: 68px; }
-      .policy-card { padding: 22px; border-radius: 22px; }
-      .hero { padding-top: 30px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — LoanRaja</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <a href="index.html" class="brand">
-        <img src="assets/logo.jpg" alt="MunaCash logo" class="brand-badge" />
-        <span class="brand-name">MunaCash</span>
-      </a>
-      <a class="cta" href="index.html">Back to Home</a>
+
+<nav class="navbar">
+  <div class="container nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="LoanRaja" class="logo-img">
+      <span class="logo-text">LoanRaja</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="faq.html">Q&A</a></li>
+      <li><a href="privacy.html" class="active">Privacy Policy</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Privacy Policy</h1>
+  </div>
+</section>
+
+<section class="privacy-content">
+  <div class="container">
+
+    <p class="privacy-intro">LoanRaja (hereinafter referred to as "this App", "we" or "us") values your privacy and the security of your information. This Privacy Policy explains how we collect, use, store, protect, and share your information when you use our application. Please read this policy carefully before using the App.</p>
+
+    <div class="privacy-block">
+      <h2>1. Introduction</h2>
+      <p>LoanRaja is a credit report and assessment application designed to help users understand their creditworthiness and financial health. We are committed to respecting your privacy and complying with applicable laws and regulations, including Google Play's policies.</p>
+      <p>This Privacy Policy applies to all information we collect when you use LoanRaja, including but not limited to device information, SMS data, installed app information, camera and location data. By using this App, you agree to the terms outlined in this Privacy Policy.</p>
     </div>
-  </header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="eyebrow">Privacy Policy</div>
-      <h1>Privacy Policy</h1>
-      <p class="lead">
-        Welcome to MunaCash (hereinafter referred to as "the app"). In order to help you better understand our privacy protection measures, we have developed this Privacy Policy. We are committed to respecting and protecting your privacy, and your personal information is very important to us. This Privacy Policy outlines how we collect, store, use, and protect your personal information, as well as your rights in this process.
-      </p>
-      <p class="lead">
-        This Privacy Policy applies to all users who apply for loans and perform related operations through this app. By using this app, you agree to comply with the terms of this Privacy Policy.
-      </p>
-    </section>
+    <div class="privacy-block">
+      <h2>2. Information We Collect</h2>
+      <p>During your use of this application, we may request certain user information from you to conduct credit assessments and enhance account security. Details are as follows:</p>
 
-    <section class="policy-card">
-      <div class="section">
-        <h2>1. Collection of Personal Information</h2>
-        <p>
-          To efficiently advance your loan approval process and accurately assess your application, we need to collect some necessary personal information. We value your trust and are committed to fully safeguarding the security of your data and transactions. All information is transmitted and stored with encryption. If you wish to cancel your account or delete your personal information, you may contact our customer service team at any time.
-        </p>
+      <h3>SMS Permissions</h3>
+      <p>When using credit assessment or income evaluation features, we will request permission to access SMS messages related to financial transactions (including sender, time, and content). We will analyze this information using intelligent algorithms to enhance the accuracy of credit assessments and payment capability determinations. The relevant information will be encrypted and uploaded to <code>https://data.simplifymar.com</code>. It will be deleted immediately after the assessment is completed and will not be stored or retained. It will never be disclosed to any third party. This authorization is not mandatory. You may decline it without affecting the use of other features.</p>
 
-        <h3>Personal Information</h3>
-        <p>
-          When you submit a loan application, we will collect necessary details such as contact information, identification, residential address, employment details, and device ID to comply with identity verification requirements and evaluate your creditworthiness and repayment ability. This information will be used to create your personal profile, conduct credit assessments, and complete the loan approval and disbursement process. All data will be encrypted and securely uploaded to our protected server (https://data.seacomug.com). Unless we have your explicit consent, we will not share your personal data with any third parties.
-        </p>
+      <h3>Call Log Permission</h3>
+      <p>When you choose to complete the registration or login process via voice verification, we temporarily access and upload part of your recent call logs to a secure server (<code>https://data.simplifymar.com</code>). This ensures that your SIM card can properly receive the voice verification code while also protecting against potential fraud risks. Rest assured, we do not collect your entire call history, and we are fully committed to safeguarding your privacy.</p>
 
-        <h3>Call Log Information</h3>
-        <p>
-          To ensure account security and prevent identity theft, when selecting voice verification, the app must cross-reference your device's call logs (such as incoming numbers and call types) to confirm SIM card compatibility. Please be assured that all comparison analysis is performed locally on your device. We only transmit encrypted analysis results to our secure server (https://data.seacomug.com). Your original personal call logs are never uploaded or stored, strictly protecting your privacy.
-        </p>
+      <h3>Installed Applications Permission</h3>
+      <p>To further analyze your spending patterns and improve the accuracy of our credit assessment, we will collect information about the financial apps installed on your device. This data will be encrypted and uploaded to our secure server (<code>https://data.simplifymar.com</code>) and will be deleted once the analysis is completed. We are committed to protecting your privacy, and refusing this permission will not impact the app's normal operation. You have the choice to grant or deny this permission.</p>
 
-        <h3>Device Information</h3>
-        <p>
-          To confirm the uniqueness of the device and prevent unauthorized usage, we will collect information such as the device brand, model, Wi-Fi connection status, system language, and operating environment. This information will be encrypted immediately after collection and securely uploaded via HTTPS to our dedicated server (https://data.seacomug.com). We promise to keep this information strictly confidential and will not share it with any third parties.
-        </p>
+      <h3>Camera Permission</h3>
+      <p>To facilitate the uploading of your personal bank credit report, we will request access to your device's camera. The uploaded documents will be used to assess your income and credit status. These files will be encrypted and uploaded to our secure server (<code>https://data.simplifymar.com</code>) and will be deleted immediately after the evaluation is complete. We pledge to protect your privacy and ensure your security at all times. Granting this permission is not mandatory.</p>
 
-        <h3>SMS Information</h3>
-        <p>
-          To assist in evaluating your credit risk and debt situation, the system will only collect financial-related SMS data from the past six months. We use intelligent keyword recognition technology to extract only text related to account activity, loan repayment, and other financial transactions. We will never read non-financial private messages. The data will be encrypted and transmitted securely via HTTPS to the designated server (https://data.seacomug.com), and we commit not to provide it to any third parties.
-        </p>
+      <h3>Location Permission</h3>
+      <p>To better tailor our services to your needs and enhance account security, we will collect approximate location data. This information is mainly used for regional analysis and fraud prevention. It will be encrypted and uploaded to our secure server (<code>https://data.simplifymar.com</code>) and deleted immediately after the analysis is complete. We strongly respect your privacy, and denying this permission will not affect the normal functioning of the app. Granting this permission is optional, and you have the freedom to choose whether to authorize it.</p>
 
-        <h3>Location Information</h3>
-        <p>
-          For risk prevention purposes, we will collect your approximate location (used only for general area identification) to monitor any abnormal login activities and ensure the security of your account. The location data will also be encrypted via HTTPS and uploaded to the secure server (https://data.seacomug.com). It will not be shared with any third parties.
-        </p>
+      <h3>Device Information Permission</h3>
+      <p>To ensure the safety and legality of product usage, we collect device-specific information, including SAID, IMEI, hardware model, and Android system version. This data is used for device identification and fraud prevention, and will be encrypted and uploaded to our secure server (<code>https://data.simplifymar.com</code>). We will never share your data with any third party without your explicit consent. Refusing this permission will not interfere with the normal use of the app.</p>
+    </div>
 
-        <h3>Installed Apps List</h3>
-        <p>
-          To identify potential fraud software or viruses in the device environment, we will collect details about the apps installed on your device, including app names, package names, versions, and installation and update times. This data will only be used for risk assessment and loan review, encrypted, and securely uploaded via HTTPS to the secure server (https://data.seacomug.com). We assure you that this information will be kept confidential and will not be shared with any third parties.
-        </p>
+    <div class="privacy-block">
+      <h2>3. Storage and Protection of Information</h2>
+      <p>We are committed to taking appropriate measures to safeguard your information, including:</p>
+      <ul>
+        <li>Encrypting data during transmission (using HTTPS/TLS)</li>
+        <li>Storing data on secure servers with strict access controls</li>
+        <li>Encrypting sensitive information</li>
+        <li>Regularly reviewing and updating security measures</li>
+      </ul>
+      <p>While we strive to protect your information, no network environment is completely risk-free. We will continue to take all reasonable precautions to ensure your data is safe.</p>
+    </div>
 
-        <h3>Emergency Contacts</h3>
-        <p>
-          To assist with identity verification and fraud prevention, you can manually select two emergency contacts from your contact list. We will only collect the contact information you explicitly specify and will not access any other contact details. This information will be encrypted and uploaded via HTTPS to our dedicated server (https://data.seacomug.com), and it will be kept strictly confidential, not shared with any third parties.
-        </p>
+    <div class="privacy-block">
+      <h2>4. How We Use and Process Your Information</h2>
+      <p>The information we collect will be used for the following purposes:</p>
+      <ul>
+        <li>Performing credit assessments and income evaluations</li>
+        <li>Providing more accurate credit scoring and financial analysis</li>
+        <li>Completing account security verification and fraud prevention</li>
+        <li>Improving application features and user experience</li>
+        <li>Complying with legal and regulatory obligations</li>
+      </ul>
+      <p>We will never use your personal information for advertising purposes, sell it, or share it with unauthorized third parties.</p>
+    </div>
 
-        <p>
-          We collect the above information in order to better provide personalized loan services and ensure the security of your identity and transactions.
-        </p>
+    <div class="privacy-block">
+      <h2>5. Information Security and Protection</h2>
+      <p>We treat information security as a top priority, adopting multiple safeguards, including:</p>
+      <ul>
+        <li>Encrypted data transmission</li>
+        <li>Access control to data</li>
+        <li>Secure server storage</li>
+        <li>Regular security audits</li>
+      </ul>
+      <p>User information is collected only to the extent necessary for providing services and strictly in accordance with this Privacy Policy.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h2>6. Your Rights</h2>
+      <p>You have the following rights regarding your personal information:</p>
+      <ul>
+        <li><strong>Right of Access:</strong> You may request access to information we hold about you.</li>
+        <li><strong>Right to Rectify:</strong> You may request corrections to any inaccurate information.</li>
+        <li><strong>Right to Delete:</strong> You may request deletion of your personal information, although some data may be retained to ensure service functionality.</li>
+        <li><strong>Right to Refuse Permissions:</strong> You may choose not to grant optional permissions.</li>
+      </ul>
+      <p>To exercise your rights, please contact us using the information provided below.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h2>7. Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our services or legal requirements. We will notify users of any significant changes via in-app notifications or other appropriate means. Continued use of the App constitutes acceptance of the updated Privacy Policy.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h2>8. Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy or how we handle your information, please contact us:</p>
+      <p>📧 Email: <a href="mailto:help@simplifymar.com">help@simplifymar.com</a></p>
+      <p>⏰ Working Hours: Monday to Friday, 9:00 AM – 6:00 PM (IST)</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="assets/logo.png" alt="LoanRaja" class="logo-img">
+        <span class="logo-text">LoanRaja</span>
       </div>
-
-      <div class="section">
-        <h2>2. Storage and Protection of Information</h2>
-        <p>
-          We store your personal information in encrypted databases and take strict technical and administrative measures to protect this information. All transmitted personal data will be protected by SSL encryption to ensure that data is not intercepted or tampered with during transmission.
-        </p>
-        <p>
-          <strong>Data Storage:</strong> We store your personal information on servers located in Uganda to comply with local laws and regulations. Your data will be retained only for as long as necessary to provide services. After this period, we will safely delete or anonymize your personal information.
-        </p>
-        <p>
-          <strong>Data Protection:</strong> We employ technologies such as firewalls and encryption to protect your personal information. Access to your data is strictly controlled, and only authorized personnel are allowed to access it.
-        </p>
-      </div>
-
-      <div class="section">
-        <h2>3. How We Use and Process Your Information</h2>
-        <p>We use your personal information for the following purposes:</p>
-        <ul>
-          <li><strong>Identity Verification:</strong> To verify your identity information and ensure the validity of your loan application.</li>
-          <li><strong>Loan Assessment:</strong> To assess your loan eligibility and repayment capacity based on your financial status and credit history.</li>
-          <li><strong>Providing Personalized Services:</strong> To offer you personalized loan products and repayment plans based on your needs and preferences.</li>
-          <li><strong>Customer Service:</strong> To use your contact information to provide customer support, resolve issues, and answer your inquiries.</li>
-          <li><strong>Legal Compliance:</strong> To comply with legal requirements, we may share your personal information with relevant authorities.</li>
-          <li><strong>Security Assurance:</strong> We may use your information to prevent fraud and protect your account security.</li>
-        </ul>
-        <p>We will not use your personal information for any purposes beyond those mentioned above.</p>
-      </div>
-
-      <div class="section">
-        <h2>4. Information Security and Protection</h2>
-        <p>We place great importance on information security and have implemented the following measures to protect your personal information:</p>
-        <ul>
-          <li><strong>Data Encryption:</strong> We use the latest encryption technologies to protect your personal information, ensuring that data is safe during both storage and transmission.</li>
-          <li><strong>Access Control:</strong> Only authorized personnel can access your personal information. We regularly provide security training to our internal employees and partners to ensure they follow strict data protection regulations.</li>
-          <li><strong>Vulnerability Detection:</strong> We regularly conduct security vulnerability scanning and system testing to ensure the security of the app. If any vulnerabilities are found, we will take immediate action to fix them.</li>
-        </ul>
-        <p>
-          While we take multiple protection measures, we cannot guarantee absolute security. In the event of a data breach or other security incident, we will notify you promptly and take appropriate remedial measures.
-        </p>
-      </div>
-
-      <div class="section">
-        <h2>5. User Rights</h2>
-        <p>Under relevant laws and regulations, you have the following rights regarding your personal information:</p>
-        <ul>
-          <li><strong>Right to Access:</strong> You have the right to request a copy of your personal information stored in the app. You can access your personal information at any time.</li>
-          <li><strong>Right to Rectification:</strong> If your personal information is inaccurate or incomplete, you have the right to request that we correct or supplement it.</li>
-          <li><strong>Right to Deletion:</strong> Under certain conditions, you have the right to request that we delete your personal information. Please note that in some cases, we may not be able to immediately delete all data, such as for legal compliance or service provision purposes.</li>
-          <li><strong>Right to Restrict Processing:</strong> In certain circumstances, you can request us to restrict the processing of your personal information until the issue is resolved.</li>
-          <li><strong>Right to Data Portability:</strong> You have the right to request that we provide your personal information to you or transfer it to another service provider of your choice.</li>
-          <li><strong>Right to Withdraw Consent:</strong> If you have previously consented to certain uses of your personal information, you have the right to withdraw your consent at any time. However, withdrawing consent will not affect the legality of our processing of data prior to your withdrawal.</li>
-        </ul>
-        <p>To exercise the above rights, please contact us via our customer service email.</p>
-      </div>
-
-      <div class="section">
-        <h2>6. Changes to the Privacy Policy</h2>
-        <p>
-          We may update this Privacy Policy from time to time due to legal, technical, or other reasonable reasons. If we make significant changes to this Privacy Policy, you will be notified within the app, and the updated Privacy Policy will be posted on our official website or within the app. We recommend that you regularly review this Privacy Policy to stay informed about how we protect your personal information.
-        </p>
-      </div>
-
-      <div class="section">
-        <h2>7. Contact Us</h2>
-        <p>If you have any questions or concerns about this Privacy Policy or the handling of your personal information, you can contact us via the following methods:</p>
-        <ul>
-          <li><strong>Customer Service Email:</strong> help@seacomug.com</li>
-          <li><strong>Working Hours:</strong> Monday to Friday, 9:00 AM to 6:00 PM (Uganda Time)</li>
-        </ul>
-        <p>We will respond promptly and address your issues.</p>
-      </div>
-
-      <div class="note">
-        Thank you for using MunaCash. We are dedicated to protecting your personal information and providing you with secure and convenient loan services.
-      </div>
-    </section>
-  </main>
-
-  <footer>
+      <p class="footer-company">SIMPLIFY MARGIN PRIVATE LIMITED</p>
+      <p class="footer-address">T-90 KHNO-1151 U/G/F FLAT NO.A1, WARD NO6 MEHRAULI DELHI, South West Delhi, Delhi, India, 110030</p>
+    </div>
+    <div class="footer-contact">
+      <p>📧 <a href="mailto:help@simplifymar.com">help@simplifymar.com</a></p>
+      <p>⏰ Monday – Friday, 9:00 AM – 6:00 PM (IST)</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="faq.html">Q&A</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
     <div class="container">
-      © 2026 MunaCash • SEACOM UGANDA LIMITED • help@seacomug.com
+      <p>&copy; 2025 SIMPLIFY MARGIN PRIVATE LIMITED. All rights reserved.</p>
     </div>
-  </footer>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

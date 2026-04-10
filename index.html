@@ -1,655 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MunaCash Uganda | Fast, Fair & Secure Digital Loans</title>
-  <meta name="description" content="MunaCash helps Ugandans access fast, transparent, and secure digital loans with instant review and seamless MTN MoMo & Airtel Money support." />
-  <meta name="theme-color" content="#A855F7" />
-  <style>
-    :root {
-      --primary: #A855F7;
-      --primary-dark: #7e22ce;
-      --primary-soft: #f3e8ff;
-      --ink: #1f2937;
-      --muted: #6b7280;
-      --line: #eadcff;
-      --bg: #ffffff;
-      --bg-alt: #faf5ff;
-      --card: rgba(255,255,255,0.88);
-      --success: #16a34a;
-      --shadow: 0 18px 50px rgba(88, 28, 135, 0.14);
-      --radius-xl: 28px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --max: 1180px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at top right, rgba(168,85,247,0.16), transparent 30%),
-        linear-gradient(180deg, #ffffff 0%, #fcfaff 100%);
-      line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(16px);
-      background: rgba(255,255,255,0.85);
-      border-bottom: 1px solid rgba(168,85,247,0.10);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      min-height: 74px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      font-size: 1.08rem;
-    }
-
-    .brand-badge {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      object-fit: cover;
-      box-shadow: 0 12px 30px rgba(168,85,247,0.20);
-      border: 1px solid rgba(168,85,247,0.12);
-      flex: 0 0 auto;
-      background: #fff;
-    }
-
-    .brand-name {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.12rem;
-    }
-
-    .menu {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .menu a {
-      color: var(--muted);
-      font-weight: 600;
-      transition: color .2s ease;
-    }
-    .menu a:hover { color: var(--primary-dark); }
-
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 13px 22px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: #fff;
-      font-weight: 700;
-      box-shadow: 0 16px 28px rgba(168,85,247,0.24);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 22px 34px rgba(168,85,247,0.28);
-    }
-
-    .hero {
-      padding: 48px 0 28px;
-    }
-
-    .hero-wrap {
-      display: block;
-      max-width: 860px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(168,85,247,0.10);
-      color: var(--primary-dark);
-      font-weight: 700;
-      font-size: .92rem;
-      margin-bottom: 18px;
-    }
-
-    h1, h2, h3 { line-height: 1.1; margin: 0 0 16px; letter-spacing: -0.03em; }
-    h1 { font-size: clamp(2.6rem, 5vw, 4.7rem); }
-    h2 { font-size: clamp(2rem, 3vw, 3rem); }
-    h3 { font-size: 1.25rem; }
-
-    .lead {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 58ch;
-      margin-bottom: 28px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-
-
-    .ghost {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid rgba(168,85,247,0.18);
-      color: var(--primary-dark);
-      background: rgba(255,255,255,0.72);
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .stat {
-      background: rgba(255,255,255,0.78);
-      border: 1px solid rgba(168,85,247,0.10);
-      box-shadow: var(--shadow);
-      border-radius: 18px;
-      padding: 18px;
-    }
-    .stat strong {
-      display: block;
-      font-size: 1.35rem;
-      margin-bottom: 6px;
-    }
-    .stat span {
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-
-
-    .grid-2, .grid-3, .grid-4 {
-      display: grid;
-      gap: 20px;
-    }
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
-    section {
-      padding: 82px 0;
-    }
-
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 28px;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      margin: 0;
-      font-size: 1.04rem;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(168,85,247,0.12);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow);
-      height: 100%;
-    }
-
-    .icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #e9d5ff, #d8b4fe);
-      color: var(--primary-dark);
-      font-size: 1.3rem;
-      margin-bottom: 16px;
-    }
-
-    .step {
-      position: relative;
-      padding-top: 50px;
-    }
-    .step-num {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      color: #fff;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      box-shadow: 0 14px 24px rgba(168,85,247,0.24);
-    }
-
-    .highlight {
-      background: linear-gradient(180deg, rgba(168,85,247,0.06), rgba(168,85,247,0.03));
-      border-top: 1px solid rgba(168,85,247,0.08);
-      border-bottom: 1px solid rgba(168,85,247,0.08);
-    }
-
-    .tip {
-      margin-top: 24px;
-      padding: 18px 20px;
-      border-radius: 18px;
-      background: #f5edff;
-      border: 1px dashed rgba(168,85,247,0.30);
-      color: #5b21b6;
-      font-weight: 600;
-    }
-
-    .about-panel {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .privacy-box {
-      background: linear-gradient(180deg, #1f102f 0%, #311547 100%);
-      color: #fff;
-      border-radius: var(--radius-xl);
-      padding: 34px;
-      box-shadow: 0 24px 54px rgba(49, 21, 71, 0.30);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .privacy-box::after {
-      content: "";
-      position: absolute;
-      width: 240px;
-      height: 240px;
-      right: -60px;
-      bottom: -100px;
-      background: radial-gradient(circle, rgba(192,132,252,0.32), transparent 70%);
-      border-radius: 999px;
-    }
-
-    .policy-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .policy-item {
-      padding: 16px 18px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .contact-box {
-      background: linear-gradient(135deg, #ffffff, #faf5ff);
-      border: 1px solid rgba(168,85,247,0.12);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      padding: 28px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: #fff;
-      border: 1px solid rgba(168,85,247,0.10);
-    }
-
-    footer {
-      background: #1a1024;
-      color: rgba(255,255,255,0.86);
-      padding: 26px 0 max(26px, env(safe-area-inset-bottom));
-      position: sticky;
-      bottom: 0;
-      z-index: 40;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .footer-wrap {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1.4fr;
-      gap: 16px;
-      align-items: center;
-      font-size: .97rem;
-    }
-
-    .footer-brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .footer-wrap strong {
-      color: #fff;
-    }
-
-    @media (max-width: 980px) {
-      .hero-wrap,
-      .about-panel,
-      .grid-4,
-      .grid-3,
-      .grid-2,
-      .footer-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .menu {
-        display: none;
-      }
-
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
-
-      footer {
-        position: static;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero { padding-top: 28px; }
-      section { padding: 62px 0; }
-      .privacy-box, .contact-box { padding: 22px; }
-      .topbar .nav { min-height: 68px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LoanRaja — Free Indian Credit Report</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <a href="#home" class="brand" aria-label="MunaCash Home">
-        <img src="assets/logo.jpg" alt="MunaCash logo" class="brand-badge" />
-        <span class="brand-name">MunaCash</span>
-      </a>
-      <nav class="menu" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="#contact">Contact</a>
-        <a href="#how-it-works" class="cta">Get Started</a>
-      </nav>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="container nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="LoanRaja" class="logo-img">
+      <span class="logo-text">LoanRaja</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="faq.html">Q&A</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Banner -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <h1>Get your Indian credit report for <span class="highlight">free</span> and stay on top of your financial health.</h1>
+      <p class="hero-desc">LoanRaja is a free credit report tool designed specifically for Indian consumers. With LoanRaja, you can check your credit score, assess your financial capacity, and calculate loan EMIs — all in one place — helping you stay informed and make smarter financial choices.</p>
+
     </div>
-  </header>
+    <div class="hero-image">
+      <div class="hero-illustration">
+        <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" width="100%">
+          <!-- Background circle -->
+          <circle cx="200" cy="180" r="160" fill="#e8f4fd" opacity="0.6"/>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-wrap">
-        <div>
-          <div class="eyebrow">Uganda Digital Lending • Fast • Transparent • Secure</div>
-          <h1>Empower Your Financial Future with MunaCash</h1>
-          <p class="lead">
-            MunaCash is your trusted digital lending partner in Uganda — built to deliver fast access to credit,
-            transparent loan terms, and a seamless experience with MTN MoMo and Airtel Money.
-          </p>
-          <div class="hero-actions">
-            <a href="#how-it-works" class="cta">Apply in 3 Simple Steps</a>
-            <a href="#about" class="ghost">Learn About MunaCash</a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat">
-              <strong>Instant</strong>
-              <span>AI-powered application review in minutes.</span>
-            </div>
-            <div class="stat">
-              <strong>Transparent</strong>
-              <span>No hidden fees. Clear terms from the start.</span>
-            </div>
-            <div class="stat">
-              <strong>Integrated</strong>
-              <span>Optimized for MTN MoMo and Airtel Money.</span>
-            </div>
-          </div>
-        </div>
+          <!-- Building left -->
+          <rect x="40" y="140" width="60" height="160" rx="4" fill="#0380d0"/>
+          <rect x="50" y="155" width="14" height="14" rx="2" fill="#fff" opacity="0.7"/>
+          <rect x="72" y="155" width="14" height="14" rx="2" fill="#fff" opacity="0.7"/>
+          <rect x="50" y="178" width="14" height="14" rx="2" fill="#fff" opacity="0.7"/>
+          <rect x="72" y="178" width="14" height="14" rx="2" fill="#fff" opacity="0.7"/>
+          <rect x="50" y="201" width="14" height="14" rx="2" fill="#fff" opacity="0.7"/>
+          <rect x="72" y="201" width="14" height="14" rx="2" fill="#fff" opacity="0.7"/>
+          <rect x="55" y="260" width="30" height="40" rx="2" fill="#fff" opacity="0.5"/>
 
-      </div>
-    </section>
+          <!-- Building right -->
+          <rect x="300" y="110" width="70" height="190" rx="4" fill="#05A0FE"/>
+          <rect x="312" y="125" width="16" height="16" rx="2" fill="#fff" opacity="0.7"/>
+          <rect x="336" y="125" width="16" height="16" rx="2" fill="#fff" opacity="0.7"/>
+          <rect x="312" y="150" width="16" height="16" rx="2" fill="#fff" opacity="0.7"/>
+          <rect x="336" y="150" width="16" height="16" rx="2" fill="#fff" opacity="0.7"/>
+          <rect x="312" y="175" width="16" height="16" rx="2" fill="#fff" opacity="0.7"/>
+          <rect x="336" y="175" width="16" height="16" rx="2" fill="#fff" opacity="0.7"/>
+          <rect x="312" y="200" width="16" height="16" rx="2" fill="#fff" opacity="0.7"/>
+          <rect x="336" y="200" width="16" height="16" rx="2" fill="#fff" opacity="0.7"/>
+          <rect x="320" y="260" width="30" height="40" rx="2" fill="#fff" opacity="0.5"/>
 
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <h2>Why Choose MunaCash?</h2>
-          <p>
-            A modern financial experience designed for real life in Uganda — fast decisions, honest terms, and mobile-first convenience.
-          </p>
-        </div>
-        <div class="grid-4">
-          <article class="card">
-            <div class="icon">⚡</div>
-            <h3>Instant Response</h3>
-            <p class="muted">No paperwork, no queues. Our AI scoring system evaluates your application in minutes.</p>
-          </article>
-          <article class="card">
-            <div class="icon">🛡️</div>
-            <h3>Radical Transparency</h3>
-            <p class="muted">What you see is what you pay. No hidden fees. We believe in honest lending.</p>
-          </article>
-          <article class="card">
-            <div class="icon">📈</div>
-            <h3>Credit Growth</h3>
-            <p class="muted">Repay on time to automatically unlock higher limits and lower interest rates.</p>
-          </article>
-          <article class="card">
-            <div class="icon">📱</div>
-            <h3>Seamless Integration</h3>
-            <p class="muted">Fully optimized for MTN MoMo and Airtel Money for the fastest experience.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+          <!-- Ground -->
+          <rect x="20" y="298" width="360" height="8" rx="4" fill="#0380d0" opacity="0.3"/>
 
-    <section class="highlight" id="how-it-works">
-      <div class="container">
-        <div class="section-head">
-          <h2>Simple 3-Step Process</h2>
-          <p>Getting financial support with MunaCash is fast, intuitive, and fully mobile.</p>
-        </div>
-        <div class="grid-3">
-          <article class="card step">
-            <div class="step-num">1</div>
-            <h3>Learn & Register</h3>
-            <p class="muted">Discover how MunaCash works and begin your account registration with a simple mobile process.</p>
-          </article>
-          <article class="card step">
-            <div class="step-num">2</div>
-            <h3>Get Your Limit</h3>
-            <p class="muted">Complete a quick profile to see your personalized credit offer.</p>
-          </article>
-          <article class="card step">
-            <div class="step-num">3</div>
-            <h3>Receive Cash</h3>
-            <p class="muted">Confirm your loan, and funds will be sent to your wallet instantly.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+          <!-- Person 1 (man in suit) -->
+          <circle cx="155" cy="155" r="22" fill="#f4a261"/>
+          <!-- hair -->
+          <ellipse cx="155" cy="138" rx="22" ry="10" fill="#3d2b1f"/>
+          <!-- body -->
+          <rect x="130" y="175" width="50" height="70" rx="8" fill="#1a1a2e"/>
+          <!-- shirt/tie -->
+          <rect x="148" y="175" width="14" height="40" rx="2" fill="#fff"/>
+          <polygon points="155,185 151,210 159,210" fill="#e63946"/>
+          <!-- legs -->
+          <rect x="135" y="240" width="18" height="40" rx="4" fill="#1a1a2e"/>
+          <rect x="157" y="240" width="18" height="40" rx="4" fill="#1a1a2e"/>
+          <!-- shoes -->
+          <ellipse cx="144" cy="280" rx="12" ry="5" fill="#111"/>
+          <ellipse cx="166" cy="280" rx="12" ry="5" fill="#111"/>
+          <!-- arm holding chart -->
+          <rect x="178" y="185" width="12" height="40" rx="6" fill="#f4a261"/>
 
-    <section id="about">
-      <div class="container">
-        <div class="section-head">
-          <h2>Your Digital Financial Partner</h2>
-          <p>MunaCash is built to expand fair and dignified access to credit for every Ugandan.</p>
-        </div>
-        <div class="about-panel">
-          <article class="card">
-            <h3>Our Vision</h3>
-            <p class="muted">
-              Founded by <strong>SEACOM UGANDA LIMITED</strong>, MunaCash aims to provide fair, fast, and dignified financial services to every Ugandan through innovative fintech.
-            </p>
-            <h3 style="margin-top:22px;">Why Us?</h3>
-            <p class="muted">
-              We understand the hurdles of traditional lending. At MunaCash, we use big data and advanced algorithms to remove complexity, focusing on our core values: <strong>Speed</strong> and <strong>Trust</strong>.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Privacy Guarantee</h3>
-            <p class="muted">
-              We treat data privacy as our lifeline. All your information is encrypted and used only for credit evaluation, never shared.
-            </p>
-            <div class="tip">
-              MunaCash combines responsible technology, transparent loan communication, and customer-first support to create a smoother borrowing experience.
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+          <!-- Person 2 (woman in saree) -->
+          <circle cx="245" cy="155" r="22" fill="#c68642"/>
+          <!-- hair bun -->
+          <ellipse cx="245" cy="136" rx="18" ry="9" fill="#1a0a00"/>
+          <circle cx="258" cy="133" r="7" fill="#1a0a00"/>
+          <!-- saree body -->
+          <rect x="220" y="175" width="50" height="70" rx="8" fill="#e63946"/>
+          <!-- saree drape -->
+          <path d="M220,175 Q200,210 215,245 L220,245 L220,175Z" fill="#ff6b6b" opacity="0.7"/>
+          <!-- blouse -->
+          <rect x="228" y="175" width="34" height="22" rx="4" fill="#ffd700"/>
+          <!-- legs -->
+          <rect x="225" y="240" width="18" height="40" rx="4" fill="#e63946"/>
+          <rect x="247" y="240" width="18" height="40" rx="4" fill="#e63946"/>
+          <!-- sandals -->
+          <ellipse cx="234" cy="280" rx="12" ry="5" fill="#c0392b"/>
+          <ellipse cx="256" cy="280" rx="12" ry="5" fill="#c0392b"/>
 
-    <section class="highlight">
-      <div class="container">
-        <div class="section-head">
-          <h2>4 Steps to Unlock Your Financial Support</h2>
-          <p>A more detailed borrowing guide for first-time users.</p>
-        </div>
-        <div class="grid-2">
-          <article class="card step">
-            <div class="step-num">1</div>
-            <h3>Start with MunaCash</h3>
-            <p class="muted">Access the MunaCash service, complete your account setup, and prepare your profile for review.</p>
-          </article>
-          <article class="card step">
-            <div class="step-num">2</div>
-            <h3>Simple Registration</h3>
-            <p class="muted">Enter your phone number, get the verification code, and complete the basic signup.</p>
-          </article>
-          <article class="card step">
-            <div class="step-num">3</div>
-            <h3>Get Your Limit</h3>
-            <p class="muted">Fill in basic personal details. Our smart AI system will review and show your limit within seconds.</p>
-          </article>
-          <article class="card step">
-            <div class="step-num">4</div>
-            <h3>Instant Cash</h3>
-            <p class="muted">Confirm the loan amount and repayment period, and funds will be sent to your MTN or Airtel account immediately.</p>
-          </article>
-        </div>
-        <div class="tip">Tip: Repaying on time helps improve your credit score and unlocks lower interest rates.</div>
-      </div>
-    </section>
+          <!-- Chart/graph between them -->
+          <rect x="178" y="140" width="44" height="50" rx="6" fill="#fff" filter="url(#shadow)"/>
+          <polyline points="184,178 192,162 200,168 208,152 216,158" stroke="#05A0FE" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="216" cy="158" r="3" fill="#05A0FE"/>
+          <!-- chart label -->
+          <rect x="184" y="145" width="30" height="5" rx="2" fill="#eee"/>
+          <rect x="184" y="153" width="20" height="4" rx="2" fill="#eee"/>
 
-    <section>
-      <div class="container">
-        <div class="privacy-box">
-          <div class="section-head" style="margin-bottom:0; max-width:860px; position:relative; z-index:1;">
-            <div class="eyebrow" style="background:rgba(255,255,255,0.10); color:#f3e8ff;">Privacy & Trust</div>
-            <h2 style="color:#fff;">Your Data Deserves Respect</h2>
-            <p style="color:rgba(255,255,255,0.80);">
-              MunaCash is committed to safeguarding your personal information with strong encryption, responsible data handling, and transparent privacy practices.
-            </p>
-          </div>
-          <div class="policy-list" style="position:relative; z-index:1;">
-            <div class="policy-item"><strong>Data Security:</strong> Personal information is encrypted during storage and transmission.</div>
-            <div class="policy-item"><strong>Purpose Limitation:</strong> Data is collected and used only for identity verification, risk control, and credit evaluation.</div>
-            <div class="policy-item"><strong>User Transparency:</strong> We explain what data is collected and why, so users can make informed decisions.</div>
-          </div>
-          <div style="margin-top:24px; position:relative; z-index:1;">
-            <a class="cta" href="privacy.html">Read Full Privacy Policy</a>
-          </div>
-        </div>
-      </div>
-    </section>
+          <!-- Floating coins -->
+          <circle cx="100" cy="120" r="14" fill="#ffd700"/>
+          <text x="100" y="125" text-anchor="middle" font-size="13" font-weight="bold" fill="#b8860b">₹</text>
+          <circle cx="300" cy="90" r="11" fill="#ffd700"/>
+          <text x="300" y="95" text-anchor="middle" font-size="11" font-weight="bold" fill="#b8860b">₹</text>
+          <circle cx="330" cy="130" r="8" fill="#ffd700" opacity="0.7"/>
+          <text x="330" y="134" text-anchor="middle" font-size="9" font-weight="bold" fill="#b8860b">₹</text>
 
-    <section id="contact">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">We Are Here to Help</div>
-          <h2>Get in Touch</h2>
-          <p>
-            Whether you have questions during your application or need support, our team is ready to assist.
-          </p>
-        </div>
-        <div class="contact-box">
-          <div class="contact-list">
-            <div class="contact-item">
-              <div class="icon" style="margin:0; width:44px; height:44px;">✉️</div>
-              <div>
-                <strong>Support Email</strong>
-                <div class="muted">help@seacomug.com</div>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="icon" style="margin:0; width:44px; height:44px;">📍</div>
-              <div>
-                <strong>Office Address</strong>
-                <div class="muted">Plot 28-30, Block B, Clement Hill Road, Kampala, UG</div>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="icon" style="margin:0; width:44px; height:44px;">🕒</div>
-              <div>
-                <strong>Working Hours</strong>
-                <div class="muted">Monday to Sunday, 24/7 Online Support</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+          <!-- Score badge -->
+          <rect x="260" y="60" width="90" height="40" rx="12" fill="#05A0FE"/>
+          <text x="305" y="76" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">Credit Score</text>
+          <text x="305" y="92" text-anchor="middle" font-size="14" fill="#fff" font-weight="800">782 ✓</text>
 
-  <footer>
-    <div class="container footer-wrap">
-      <div class="footer-brand">
-        <img src="assets/logo.jpg" alt="MunaCash logo" class="brand-badge" />
-        <span class="brand-name">MunaCash</span>
-      </div>
-      <div><strong>Company:</strong> SEACOM UGANDA LIMITED</div>
-      <div>
-        <strong>Support:</strong> help@seacomug.com<br />
-        <strong>Address:</strong> Plot 28-30, Block B, Clement Hill Road, Kampala, UG
+          <defs>
+            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+            </filter>
+          </defs>
+        </svg>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features" id="features">
+  <div class="container">
+    <h2 class="section-title">What LoanRaja Offers</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>Credit Report Check</h3>
+        <p>Quickly access your full credit report with professional insights.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Financial Capacity Analysis</h3>
+        <p>Understand your income and debt structure to determine your financial limits.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧮</div>
+        <h3>Loan EMI Calculator</h3>
+        <p>Easily calculate monthly payments for different loan options to guide your borrowing decisions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Advantages -->
+<section class="advantages">
+  <div class="container">
+    <h2 class="section-title">Why Choose LoanRaja</h2>
+    <div class="advantages-grid">
+      <div class="advantage-card">
+        <div class="advantage-icon">🆓</div>
+        <h3>Completely Free</h3>
+        <p>Credit report checks are always free — no hidden fees, ever.</p>
+      </div>
+      <div class="advantage-card">
+        <div class="advantage-icon">⚡</div>
+        <h3>Fast & Accurate</h3>
+        <p>Generate reliable credit reports and analysis results in no time.</p>
+      </div>
+      <div class="advantage-card">
+        <div class="advantage-icon">🔒</div>
+        <h3>Secure Encryption</h3>
+        <p>Your personal information is protected with strong encryption at all times.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Steps -->
+<section class="steps">
+  <div class="container">
+    <h2 class="section-title">📲 Get Your Credit Report in 3 Simple Steps</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Download the App</h3>
+        <p>Get LoanRaja from your app store.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Fill in Your Basic Info</h3>
+        <p>Enter a few details to verify your identity.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>View Your Credit Report</h3>
+        <p>Instantly see your score and full report.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="assets/logo.png" alt="LoanRaja" class="logo-img">
+        <span class="logo-text">LoanRaja</span>
+      </div>
+      <p class="footer-company">SIMPLIFY MARGIN PRIVATE LIMITED</p>
+      <p class="footer-address">T-90 KHNO-1151 U/G/F FLAT NO.A1, WARD NO6 MEHRAULI DELHI, South West Delhi, Delhi, India, 110030</p>
+    </div>
+    <div class="footer-contact">
+      <p>📧 <a href="mailto:help@simplifymar.com">help@simplifymar.com</a></p>
+      <p>⏰ Monday – Friday, 9:00 AM – 6:00 PM (IST)</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="faq.html">Q&A</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; 2025 SIMPLIFY MARGIN PRIVATE LIMITED. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
